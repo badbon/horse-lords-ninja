@@ -411,9 +411,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodPrefab: {fileID: 5329532211084531803, guid: 96e18fe70ed17f7449494f1652d1494f, type: 3}
-  spawnInterval: 2
-  cameraHeight: 0
-  cameraWidth: 0
+  spawnInterval: 0.1
+  preSpawnCount: 1000
+  mapWidth: 100
+  mapHeight: 100
 --- !u!1001 &2427036782488988791
 PrefabInstance:
   m_ObjectHideFlags: 0
