@@ -411,10 +411,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodPrefab: {fileID: 5329532211084531803, guid: 96e18fe70ed17f7449494f1652d1494f, type: 3}
-  spawnInterval: 0.1
-  preSpawnCount: 1000
-  mapWidth: 100
-  mapHeight: 100
+  spawnInterval: 11111
+  preSpawnCount: 1
+  mapWidth: 75
+  mapHeight: 75
 --- !u!1001 &2427036782488988791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -423,10 +423,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1535937071}
     m_Modifications:
-    - target: {fileID: 4816582387943590192, guid: e33e67191bae6a844af4aab8c8954720, type: 3}
-      propertyPath: growthAmount
-      value: 0.01
-      objectReference: {fileID: 0}
     - target: {fileID: 6906489520243817400, guid: e33e67191bae6a844af4aab8c8954720, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
