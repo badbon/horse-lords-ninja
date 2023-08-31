@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5.0f;
+    public float growthAmount = 0.05f; // Pre-determined growth amount
     private Rigidbody2D rb;
 
     private void Start()
@@ -25,9 +26,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (col.gameObject.tag == "Food")
         {
-            // Increase the player size
-            float growthRate = 1.1f; // or any value you deem fit
-            transform.localScale *= growthRate;
+            // Increase the player size by a consistent amount
+            transform.localScale += new Vector3(growthAmount, growthAmount, 0);
 
             // Destroy the food
             Destroy(col.gameObject);
@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
         // Player collision
         if (col.gameObject.tag == "Player")
         {
+            Debug.Log("Player collision!");
             if (transform.localScale.x > col.gameObject.transform.localScale.x)
             {
                 // Current player is larger and can consume the other player
