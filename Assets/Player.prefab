@@ -109,6 +109,7 @@ MonoBehaviour:
   downWalkSprite: {fileID: 276079688, guid: 366d61cdf472d104789f486ba34896d4, type: 3}
   leftWalkSprite: {fileID: -476996106, guid: 366d61cdf472d104789f486ba34896d4, type: 3}
   rightWalkSprite: {fileID: 1024514338, guid: 366d61cdf472d104789f486ba34896d4, type: 3}
+  spriteRenderer: {fileID: 890075954367158571}
 --- !u!50 &5024396172226021039
 Rigidbody2D:
   serializedVersion: 4

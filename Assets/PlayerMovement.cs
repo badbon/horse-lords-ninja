@@ -10,9 +10,13 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     public Sprite upSprite, downSprite, leftSprite, rightSprite, upWalkSprite, downWalkSprite, leftWalkSprite, rightWalkSprite;
     public SpriteRenderer spriteRenderer;
+    public bool alternateSprite = false;
+    public float alternateAnimTime = 0.1f;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        InvokeRepeating("AlternateTimer", alternateAnimTime, alternateAnimTime);
     }
 
     private void FixedUpdate()
@@ -65,9 +69,37 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    private void AlternateTimer()
+    {
+        alternateSprite = !alternateSprite;
+    }
+
     private void AdjustSprite(Sprite spriteDir)
     {
-        spriteRenderer.sprite = spriteDir;
+        // Walk cycle animation (alternate between walk and regular sprite)
+        if (alternateSprite)
+        {
+            spriteRenderer.sprite = spriteDir;
+        }
+        else
+        {
+            if (spriteDir == upSprite)
+            {
+                spriteRenderer.sprite = upWalkSprite;
+            }
+            else if (spriteDir == downSprite)
+            {
+                spriteRenderer.sprite = downWalkSprite;
+            }
+            else if (spriteDir == leftSprite)
+            {
+                spriteRenderer.sprite = leftWalkSprite;
+            }
+            else if (spriteDir == rightSprite)
+            {
+                spriteRenderer.sprite = rightWalkSprite;
+            }
+        }
     }
 
     // Growing / food collision
