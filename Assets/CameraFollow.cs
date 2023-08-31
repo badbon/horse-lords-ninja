@@ -9,14 +9,21 @@ public class CameraFollow : MonoBehaviour
     public Vector3 offset;
     public float minZoom, maxZoom;
 
+
+    private float initialZ;
+
+    private void Start()
+    {
+        initialZ = transform.position.z;
+    }
+
     void FixedUpdate()
     {
         Vector3 desiredPosition = target.position + offset;
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+        smoothedPosition.z = initialZ;  // Ensure Z remains the same
         transform.position = smoothedPosition;
 
-        // Optionally, for the zoom effect:
-        float desiredZoom = Mathf.Clamp(target.localScale.x, minZoom, maxZoom); // Set minZoom and maxZoom based on your preference
-        Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, desiredZoom, Time.deltaTime * smoothSpeed);
+        // Zoom effect: TODO
     }
 }

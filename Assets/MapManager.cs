@@ -6,13 +6,14 @@ public class MapManager : MonoBehaviour
 {
     public GameObject foodPrefab;
     public float spawnInterval = 2f;
-    public float cameraHeight = 2f * Camera.main.orthographicSize;
+    public float cameraHeight;
     public float cameraWidth;
 
 
     void Start()
     {
         StartCoroutine(SpawnFood());
+        cameraHeight = Camera.main.orthographicSize * 2;
         cameraWidth = cameraHeight * Camera.main.aspect;
     }
 

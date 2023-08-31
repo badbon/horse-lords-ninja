@@ -2,19 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour 
+public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5.0f;
     private Rigidbody2D rb;
 
-    private void Start() 
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update() 
+    private void FixedUpdate()
     {
-        Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
+        Vector2 screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
+        Vector2 direction = (Input.mousePosition - new Vector3(screenCenter.x, screenCenter.y, 0)).normalized;
+
         rb.velocity = direction * speed;
     }
 
