@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8445184150522798524
+--- !u!1 &4512774840863689040
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,25 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6906489520243817400}
-  - component: {fileID: 890075954367158571}
-  - component: {fileID: 4816582387943590192}
-  - component: {fileID: 5024396172226021039}
-  - component: {fileID: 4464949824879227122}
+  - component: {fileID: 934210737987891830}
+  - component: {fileID: 6143808963828054210}
+  - component: {fileID: 7915210493087030672}
+  - component: {fileID: 6178702300813306127}
   m_Layer: 0
-  m_Name: Player
+  m_Name: EnemyKnight
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6906489520243817400
+--- !u!4 &934210737987891830
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8445184150522798524}
+  m_GameObject: {fileID: 4512774840863689040}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -35,13 +34,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &890075954367158571
+--- !u!212 &6143808963828054210
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8445184150522798524}
+  m_GameObject: {fileID: 4512774840863689040}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -76,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 529412464, guid: 366d61cdf472d104789f486ba34896d4, type: 3}
+  m_Sprite: {fileID: -76665712, guid: be281b8fe8b031d468c9d2946b8efe98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,36 +86,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4816582387943590192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8445184150522798524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17ec63f4e29025648a60f07d9ff8cf3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  growthAmount: 1
-  upSprite: {fileID: 451982992, guid: 366d61cdf472d104789f486ba34896d4, type: 3}
-  downSprite: {fileID: 795147213, guid: 366d61cdf472d104789f486ba34896d4, type: 3}
-  leftSprite: {fileID: 596806602, guid: 366d61cdf472d104789f486ba34896d4, type: 3}
-  rightSprite: {fileID: 1783129635, guid: 366d61cdf472d104789f486ba34896d4, type: 3}
-  upWalkSprite: {fileID: 74559986, guid: 366d61cdf472d104789f486ba34896d4, type: 3}
-  downWalkSprite: {fileID: 276079688, guid: 366d61cdf472d104789f486ba34896d4, type: 3}
-  leftWalkSprite: {fileID: -476996106, guid: 366d61cdf472d104789f486ba34896d4, type: 3}
-  rightWalkSprite: {fileID: 1024514338, guid: 366d61cdf472d104789f486ba34896d4, type: 3}
---- !u!50 &5024396172226021039
+--- !u!50 &7915210493087030672
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8445184150522798524}
+  m_GameObject: {fileID: 4512774840863689040}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -136,13 +113,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &4464949824879227122
+--- !u!58 &6178702300813306127
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8445184150522798524}
+  m_GameObject: {fileID: 4512774840863689040}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
