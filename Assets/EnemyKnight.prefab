@@ -161,8 +161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3e7627d5abfdc4ebf2396b92012071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 4
   growthAmount: 0.05
+  HP: 10
   upSprite: {fileID: -1429820697, guid: 5ee512eed4397b04b8c0ad5cac133f5f, type: 3}
   downSprite: {fileID: 1213942388, guid: 5ee512eed4397b04b8c0ad5cac133f5f, type: 3}
   leftSprite: {fileID: 484783979, guid: 5ee512eed4397b04b8c0ad5cac133f5f, type: 3}
@@ -174,4 +175,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 6143808963828054210}
   alternateSprite: 0
   alternateAnimTime: 0.1
+  damageToDeal: 5
+  damageCooldown: 1
+  inPlayerCollision: 0
+  aggressive: 0
   playerTarget: {fileID: 0}

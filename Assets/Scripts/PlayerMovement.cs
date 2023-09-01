@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
         InvokeRepeating("AlternateTimer", alternateAnimTime, alternateAnimTime);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         Vector2 screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
         Vector2 direction = (Input.mousePosition - new Vector3(screenCenter.x, screenCenter.y, 0)).normalized;
@@ -70,17 +70,14 @@ public class PlayerMovement : MonoBehaviour
             // Down
             AdjustSprite(downSprite);
         }
-    }
 
-    // Controls
-    public void Update()
-    {
         // Attack
         if (Input.GetMouseButtonDown(0))
         {
             SlashSword();
         }
     }
+
 
     private void AlternateTimer()
     {
