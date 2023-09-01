@@ -8,23 +8,24 @@ public class MapManager : MonoBehaviour
     public GameObject[] enemyPrefabs;
     public float enemySpawnInterval = 0.5f;
     public float itemSpawnInterval = 0.5f;
-    public int preSpawnCount = 100; // Amount of food to spawn at the beginning
+    public int enemyPreSpawnCount = 25;
+    public bool enemyAggressive = false; // Will enemies attack unprovoked by default?
     public float mapWidth = 100f;  // Size of the map width
     public float mapHeight = 100f; // Size of the map height
 
     void Start()
     {
-        PreSpawnFood();
+        PreSpawnEnemies();
         StartCoroutine(SpawnFood());
-        InvokeRepeating("SpawnEnemy", 0, 5f);
+        InvokeRepeating("SpawnEnemy", 0, enemySpawnInterval);
     }
 
     // Function to pre-spawn food
-    private void PreSpawnFood()
+    private void PreSpawnEnemies()
     {
-        for (int i = 0; i < preSpawnCount; i++)
+        for (int i = 0; i < enemyPreSpawnCount; i++)
         {
-            SpawnSingleFood();
+            SpawnSingleEnemy();
         }
     }
 
@@ -46,14 +47,16 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    private void SpawnEnemy()
+    public void SpawnSingleEnemy()
     {
         float randomX = Random.Range(-mapWidth / 2, mapWidth / 2);
         float randomY = Random.Range(-mapHeight / 2, mapHeight / 2);
 
         int randomIndex = Random.Range(0, enemyPrefabs.Length);
-        GameObject obj = Instantiate(enemyPrefabs[randomIndex],
-         new Vector2(randomX, randomY), Quaternion.identity);
+        GameObject obj = Instantiate(enemyPrefabs[randomIndex],new Vector2(randomX, randomY),
+         Quaternion.identity);
+        
+        obj.GetComponent<EnemyController>().aggressive = enemyAggressive;
 
         obj.transform.parent = transform;
     }

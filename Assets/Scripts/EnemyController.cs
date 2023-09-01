@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     public float damageToDeal = 5f;
     public float damageCooldown = 1f; // Seconds between each damage tick
     public bool inPlayerCollision = false;
+    public bool aggressive = false;
 
     public PlayerMovement playerTarget;
 
@@ -110,6 +111,11 @@ public class EnemyController : MonoBehaviour
                 spriteRenderer.sprite = rightWalkSprite;
             }
         }
+    }
+
+    public void ToggleAggro()
+    {
+        aggressive = !aggressive;
     }
 
     void OnCollisionEnter2D(Collision2D col)
