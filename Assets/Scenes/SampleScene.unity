@@ -411,7 +411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodPrefab: {fileID: 5329532211084531803, guid: 96e18fe70ed17f7449494f1652d1494f, type: 3}
   spawnInterval: 11111
-  preSpawnCount: 1
+  preSpawnCount: 115
   mapWidth: 75
   mapHeight: 75
 --- !u!1001 &1964796844

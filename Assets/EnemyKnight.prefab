@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6143808963828054210}
   - component: {fileID: 7915210493087030672}
   - component: {fileID: 6178702300813306127}
+  - component: {fileID: 5971721230603912216}
   m_Layer: 0
   m_Name: EnemyKnight
   m_TagString: Player
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -76665712, guid: be281b8fe8b031d468c9d2946b8efe98, type: 3}
+  m_Sprite: {fileID: -1566938382, guid: 5ee512eed4397b04b8c0ad5cac133f5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -148,3 +149,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &5971721230603912216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4512774840863689040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf3e7627d5abfdc4ebf2396b92012071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
