@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     public bool alternateSprite = false;
     public float alternateAnimTime = 0.1f;
 
+    public GameObject slashPrefab;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -68,7 +70,16 @@ public class PlayerMovement : MonoBehaviour
             // Down
             AdjustSprite(downSprite);
         }
+    }
 
+    // Controls
+    public void Update()
+    {
+        // Attack
+        if (Input.GetMouseButtonDown(0))
+        {
+            SlashSword();
+        }
     }
 
     private void AlternateTimer()
@@ -125,5 +136,14 @@ public class PlayerMovement : MonoBehaviour
             // Game over
             Debug.Log("Dead!");
         }
+    }
+
+    public void SlashSword()
+    {
+        // Create a slash prefab
+        GameObject slash = Instantiate(slashPrefab, transform.position, Quaternion.identity);
+
+        // Set the slash's direction to the player's direction
+        //slash.GetComponent<DamageDealer>()
     }
 }

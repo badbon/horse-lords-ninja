@@ -140,4 +140,14 @@ public class EnemyController : MonoBehaviour
             yield return new WaitForSeconds(damageCooldown);
         }
     }
+
+    public void TakeDamage(float dmgTaken)
+    {
+        HP -= dmgTaken;
+        if (HP <= 0)
+        {
+            
+            Destroy(gameObject);
+        }
+    }
 }
