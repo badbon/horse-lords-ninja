@@ -112,7 +112,7 @@ MonoBehaviour:
   rightWalkSprite: {fileID: 1024514338, guid: 366d61cdf472d104789f486ba34896d4, type: 3}
   spriteRenderer: {fileID: 890075954367158571}
   alternateSprite: 0
-  alternateAnimTime: 0.1
+  alternateAnimTime: 0.08
   slashPrefab: {fileID: 5244187323638961488, guid: 20edc7afe2140a14aae2190aa94fc5de, type: 3}
 --- !u!50 &5024396172226021039
 Rigidbody2D:

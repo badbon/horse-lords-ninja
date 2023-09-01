@@ -34,8 +34,12 @@ public class EnemyController : MonoBehaviour
         Vector2 direction = Vector2.zero;
 
         // Simple chase
-        direction = (playerTarget.transform.position - transform.position).normalized;
-        rb.velocity = direction * speed;
+        if(aggressive)
+        {
+            direction = (playerTarget.transform.position - transform.position).normalized;
+            rb.velocity = direction * speed;
+        }
+
 
         // Generate current direction (up, down, left, right)
         if (direction.x > 0 && direction.y > 0)
@@ -111,11 +115,6 @@ public class EnemyController : MonoBehaviour
                 spriteRenderer.sprite = rightWalkSprite;
             }
         }
-    }
-
-    public void ToggleAggro()
-    {
-        aggressive = !aggressive;
     }
 
     void OnCollisionEnter2D(Collision2D col)
