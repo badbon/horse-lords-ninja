@@ -410,7 +410,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodPrefab: {fileID: 5329532211084531803, guid: 96e18fe70ed17f7449494f1652d1494f, type: 3}
-  spawnInterval: 11111
+  enemyPrefabs:
+  - {fileID: 4512774840863689040, guid: 81329ef3db275e9458a6e727532ae63b, type: 3}
+  enemySpawnInterval: 0.5
+  itemSpawnInterval: 0.5
   preSpawnCount: 115
   mapWidth: 75
   mapHeight: 75

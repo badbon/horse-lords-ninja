@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5971721230603912216}
   m_Layer: 0
   m_Name: EnemyKnight
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,3 +161,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3e7627d5abfdc4ebf2396b92012071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  growthAmount: 0.05
+  upSprite: {fileID: -1429820697, guid: 5ee512eed4397b04b8c0ad5cac133f5f, type: 3}
+  downSprite: {fileID: 1213942388, guid: 5ee512eed4397b04b8c0ad5cac133f5f, type: 3}
+  leftSprite: {fileID: 484783979, guid: 5ee512eed4397b04b8c0ad5cac133f5f, type: 3}
+  rightSprite: {fileID: 847221328, guid: 5ee512eed4397b04b8c0ad5cac133f5f, type: 3}
+  upWalkSprite: {fileID: 593558426, guid: 5ee512eed4397b04b8c0ad5cac133f5f, type: 3}
+  downWalkSprite: {fileID: -1167162369, guid: 5ee512eed4397b04b8c0ad5cac133f5f, type: 3}
+  leftWalkSprite: {fileID: -2126558865, guid: 5ee512eed4397b04b8c0ad5cac133f5f, type: 3}
+  rightWalkSprite: {fileID: 492471041, guid: 5ee512eed4397b04b8c0ad5cac133f5f, type: 3}
+  spriteRenderer: {fileID: 6143808963828054210}
+  alternateSprite: 0
+  alternateAnimTime: 0.1
+  playerTarget: {fileID: 0}

@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5.0f;
     public float growthAmount = 0.05f; // Pre-determined growth amount
+    public float HP = 50;
+
     private Rigidbody2D rb;
     public Sprite upSprite, downSprite, leftSprite, rightSprite, upWalkSprite, downWalkSprite, leftWalkSprite, rightWalkSprite;
     public SpriteRenderer spriteRenderer;
@@ -113,20 +115,15 @@ public class PlayerMovement : MonoBehaviour
             // Destroy the food
             Destroy(col.gameObject);
         }
+    }
 
-        // Player collision
-        if (col.gameObject.tag == "Player")
+    public void TakeDamage(float dmgTaken)
+    {
+        HP -= dmgTaken;
+        if (HP <= 0)
         {
-            Debug.Log("Player collision!");
-            if (transform.localScale.x > col.gameObject.transform.localScale.x)
-            {
-                // Current player is larger and can consume the other player
-                float consumeRate = 1.05f; // Adjust as necessary
-                transform.localScale *= consumeRate;
-
-                // Destroy the smaller player or handle respawning
-                Destroy(col.gameObject);
-            }
+            // Game over
+            Debug.Log("Dead!");
         }
     }
 }

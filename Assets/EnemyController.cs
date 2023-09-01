@@ -6,11 +6,15 @@ public class EnemyController : MonoBehaviour
 {
     public float speed = 5.0f;
     public float growthAmount = 0.05f; // Pre-determined growth amount
+    public float HP = 10;
     private Rigidbody2D rb;
     public Sprite upSprite, downSprite, leftSprite, rightSprite, upWalkSprite, downWalkSprite, leftWalkSprite, rightWalkSprite;
     public SpriteRenderer spriteRenderer;
     public bool alternateSprite = false;
     public float alternateAnimTime = 0.1f;
+    public float damageToDeal = 5f;
+    public float damageCooldown = 1f; // Seconds between each damage tick
+    public bool inPlayerCollision = false;
 
     public PlayerMovement playerTarget;
 
@@ -31,7 +35,6 @@ public class EnemyController : MonoBehaviour
         // Simple chase
         direction = (playerTarget.transform.position - transform.position).normalized;
         rb.velocity = direction * speed;
-        
 
         // Generate current direction (up, down, left, right)
         if (direction.x > 0 && direction.y > 0)
@@ -106,6 +109,35 @@ public class EnemyController : MonoBehaviour
             {
                 spriteRenderer.sprite = rightWalkSprite;
             }
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        // Player collision
+        if (col.gameObject.tag == "Player")
+        {
+            inPlayerCollision = true;
+            // Deal regular damage for as long as collission stays
+            StartCoroutine(DealContiniusDamage());
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D col)
+    {
+        // Player collision
+        if (col.gameObject.tag == "Player")
+        {
+            inPlayerCollision = false;
+        }
+    }
+
+    public IEnumerator DealContiniusDamage()
+    {
+        while (inPlayerCollision)
+        {
+            playerTarget.TakeDamage(damageToDeal);
+            yield return new WaitForSeconds(damageCooldown);
         }
     }
 }
