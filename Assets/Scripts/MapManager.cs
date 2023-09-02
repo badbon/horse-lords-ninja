@@ -17,7 +17,7 @@ public class MapManager : MonoBehaviour
     {
         PreSpawnEnemies();
         StartCoroutine(SpawnFood());
-        InvokeRepeating("SpawnEnemy", 0, enemySpawnInterval);
+        InvokeRepeating("SpawnSingleEnemy", 0, enemySpawnInterval);
     }
 
     // Function to pre-spawn food
