@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerThief : MonoBehaviour
 {
     // Pickpocketing mechanics
-    public float pickpocketRange = 1f;
+    public float pickpocketRange = 2f;
     public float pickpocketCooldownTime = 1f;
     public float pickPocketDetection = 15f; // Chance of detection
     public int minMoney = 1;
@@ -25,6 +25,14 @@ public class PlayerThief : MonoBehaviour
         // Controls
         if (Input.GetKeyDown(KeyCode.E))
         {
+            // Check anyone in range
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, pickpocketRange);
+            if(colliders.Length == 0)
+            {
+                // No one in range
+                Debug.Log("No one in range!");
+                return;
+            }
             // Check cooldown
             if (Time.time <  + pickpocketCooldownTime)
             {
@@ -35,6 +43,13 @@ public class PlayerThief : MonoBehaviour
             // Pickpocket
             if(pickPocketcooldown == false)
             {
+                // Run progress bar
+                GameObject progressBar = Instantiate(playerMovement.progressBarPrefab, transform.position, Quaternion.identity);
+                ProgressBar progressBarComponent = progressBar.GetComponent<ProgressBar>();
+                progressBarComponent.timeToFill = pickpocketTime;
+                // Place above player head (worldspace)
+                progressBarComponent.trackTransform = transform;
+                // Run timers
                 StartCoroutine(PickpocketTimer());
                 StartCoroutine(PickpocketCooldown());
             }

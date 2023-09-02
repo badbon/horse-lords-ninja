@@ -9,9 +9,13 @@ public class ProgressBar : MonoBehaviour
     public float fillAmount;
     public float timeToFill = 1f; 
     public bool fillUp = true; // Will the bar fill up, or down?
+    public Transform trackTransform; // Optional - will follow this transform if exists
 
     void Start()
     {
+        // Attach to WorldSpace canvas
+        transform.SetParent(GameObject.Find("WorldSpace").transform);
+
         if(fillUp)
         {
             fillAmount = 0f;
@@ -24,6 +28,10 @@ public class ProgressBar : MonoBehaviour
 
     void Update()
     {
+        if(trackTransform)
+        {
+            transform.position = trackTransform.position + new Vector3(0, 0.65f, 0);
+        }
         if(fillUp)
         {
             if(fillAmount < 1f)

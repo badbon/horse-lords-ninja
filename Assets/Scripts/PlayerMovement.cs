@@ -13,13 +13,16 @@ public class PlayerMovement : MonoBehaviour
     public float critChance = 10f; // Percentage chance of a critical hit
 
     private Rigidbody2D rb;
-    public Sprite upSprite, downSprite, leftSprite, rightSprite, upWalkSprite, downWalkSprite, leftWalkSprite, rightWalkSprite;
+    public Sprite upSprite, downSprite, leftSprite, rightSprite,
+     upWalkSprite, downWalkSprite, leftWalkSprite, rightWalkSprite;
     public SpriteRenderer spriteRenderer;
+
     public bool alternateSprite = false;
     public float alternateAnimTime = 0.1f;
     public int coins = 0;
     public GameObject slashPrefab;
     public TextMeshProUGUI coinText;
+    public GameObject progressBarPrefab;
 
     private void Start()
     {

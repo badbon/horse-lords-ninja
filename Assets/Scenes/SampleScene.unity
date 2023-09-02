@@ -1072,11 +1072,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &861693846 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8445184150522798524, guid: e33e67191bae6a844af4aab8c8954720, type: 3}
-  m_PrefabInstance: {fileID: 1964796844}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &884732557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1184,26 +1179,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6906489520243817400, guid: e33e67191bae6a844af4aab8c8954720, type: 3}
   m_PrefabInstance: {fileID: 1964796844}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1040861150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861693846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f709c260514d4f47a707d39d178edb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickpocketRange: 1
-  pickpocketCooldownTime: 1
-  pickPocketDetection: 15
-  minMoney: 1
-  maxMoney: 12
-  pickPocketcooldown: 0
-  pickpocketTime: 1
-  playerMovement: {fileID: 0}
 --- !u!1 &1048128406
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,6 +1704,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 988746263630304417, guid: e33e67191bae6a844af4aab8c8954720, type: 3}
+      propertyPath: pickpocketTime
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 988746263630304417, guid: e33e67191bae6a844af4aab8c8954720, type: 3}
+      propertyPath: pickpocketRange
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4816582387943590192, guid: e33e67191bae6a844af4aab8c8954720, type: 3}
       propertyPath: coinText
       value: 
@@ -1780,10 +1763,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8445184150522798524, guid: e33e67191bae6a844af4aab8c8954720, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1040861150}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e33e67191bae6a844af4aab8c8954720, type: 3}
 --- !u!1001 &3147686647232694984
 PrefabInstance:
