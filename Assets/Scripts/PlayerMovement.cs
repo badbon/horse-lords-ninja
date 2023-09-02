@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,8 +17,9 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public bool alternateSprite = false;
     public float alternateAnimTime = 0.1f;
-
+    public int coins = 0;
     public GameObject slashPrefab;
+    public TextMeshProUGUI coinText;
 
     private void Start()
     {
@@ -77,6 +80,9 @@ public class PlayerMovement : MonoBehaviour
         {
             SlashSword();
         }
+
+        // Update coin text
+        coinText.text = coins.ToString();
     }
 
 
