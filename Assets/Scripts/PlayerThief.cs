@@ -27,7 +27,7 @@ public class PlayerThief : MonoBehaviour
         {
             // Check anyone in range
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, pickpocketRange);
-            if(colliders.Length == 0)
+            if(colliders.Length == 1) // Only player in range
             {
                 // No one in range
                 Debug.Log("No one in range!");

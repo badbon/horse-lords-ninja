@@ -1710,7 +1710,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 988746263630304417, guid: e33e67191bae6a844af4aab8c8954720, type: 3}
       propertyPath: pickpocketRange
-      value: 2
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 4816582387943590192, guid: e33e67191bae6a844af4aab8c8954720, type: 3}
       propertyPath: coinText
