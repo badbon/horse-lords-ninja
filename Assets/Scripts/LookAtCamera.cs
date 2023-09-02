@@ -10,6 +10,7 @@ public class LookAtCamera : MonoBehaviour
     public Vector3 offset;
     public bool followTarget = false;
     public TMP_Text text;
+    public float destroyTime = 0.75f;
 
     private void Start()
     {
@@ -22,7 +23,7 @@ public class LookAtCamera : MonoBehaviour
             transform.position = targetPosition.position + offset;
         }
 
-        Invoke("DestroyText", 1.2f);
+        Invoke("DestroyText", destroyTime);
     }
 
     private void Update()
