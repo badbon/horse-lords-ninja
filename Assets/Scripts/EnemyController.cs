@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     public float damageCooldown = 1f; // Seconds between each damage tick
     public bool inPlayerCollision = false;
     public bool aggressive = false;
+    public GameObject damageTextPrefab;
 
     public PlayerMovement playerTarget;
 
@@ -39,7 +40,6 @@ public class EnemyController : MonoBehaviour
             direction = (playerTarget.transform.position - transform.position).normalized;
             rb.velocity = direction * speed;
         }
-
 
         // Generate current direction (up, down, left, right)
         if (direction.x > 0 && direction.y > 0)
@@ -148,6 +148,11 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage(float dmgTaken)
     {
+        // Spawn damage text
+        GameObject obj = Instantiate(damageTextPrefab, transform.position, Quaternion.identity);
+        obj.GetComponent<LookAtCamera>().targetPosition = transform;
+        obj.GetComponent<LookAtCamera>().text.text = dmgTaken.ToString();
+
         HP -= dmgTaken;
         if (HP <= 0)
         {

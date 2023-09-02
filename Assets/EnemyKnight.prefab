@@ -179,4 +179,5 @@ MonoBehaviour:
   damageCooldown: 1
   inPlayerCollision: 0
   aggressive: 0
+  damageTextPrefab: {fileID: 5599920168992507958, guid: 8ee55f14d2221bd429a3911f5915f2c7, type: 3}
   playerTarget: {fileID: 0}
