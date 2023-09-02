@@ -1208,7 +1208,7 @@ MonoBehaviour:
   enemySpawnInterval: 0.66
   itemSpawnInterval: 1
   enemyPreSpawnCount: 3
-  enemyAggressive: 1
+  enemyAggressive: 0
   mapWidth: 80
   mapHeight: 80
 --- !u!114 &1535937073

@@ -12,9 +12,12 @@ public class MapManager : MonoBehaviour
     public bool enemyAggressive = false; // Will enemies attack unprovoked by default?
     public float mapWidth = 100f;  // Size of the map width
     public float mapHeight = 100f; // Size of the map height
+    public static MapManager instance;
 
     void Start()
     {
+        instance = this;
+        
         PreSpawnEnemies();
         StartCoroutine(SpawnFood());
         InvokeRepeating("SpawnSingleEnemy", 0, enemySpawnInterval);

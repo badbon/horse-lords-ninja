@@ -37,6 +37,7 @@ public class EnemyController : MonoBehaviour
         // Simple chase
         if(aggressive)
         {
+            Debug.Log("Aggressive");
             direction = (playerTarget.transform.position - transform.position).normalized;
             rb.velocity = direction * speed;
         }
@@ -153,10 +154,16 @@ public class EnemyController : MonoBehaviour
         obj.GetComponent<LookAtCamera>().targetPosition = transform;
         obj.GetComponent<LookAtCamera>().text.text = dmgTaken.ToString();
 
+        if(MapManager.instance.enemyAggressive == false)
+        {
+            // If the enemies are not aggressive, make it aggressive
+            MapManager.instance.enemyAggressive = true;
+        }
+
         HP -= dmgTaken;
+        // Death
         if (HP <= 0)
         {
-            
             Destroy(gameObject);
         }
     }
