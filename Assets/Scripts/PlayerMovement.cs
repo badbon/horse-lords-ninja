@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5.0f;
     public float growthAmount = 0.05f; // Pre-determined growth amount
     public float HP = 50;
+    public float critChance = 10f; // Percentage chance of a critical hit
 
     private Rigidbody2D rb;
     public Sprite upSprite, downSprite, leftSprite, rightSprite, upWalkSprite, downWalkSprite, leftWalkSprite, rightWalkSprite;
@@ -139,7 +140,11 @@ public class PlayerMovement : MonoBehaviour
     {
         // Create a slash prefab
         GameObject slash = Instantiate(slashPrefab, transform.position, Quaternion.identity);
-
+        // Crit
+        if (UnityEngine.Random.Range(0, 100) < critChance)
+        {
+            slash.GetComponent<DamageDealer>().isCrit = true;
+        }
         // Launch rigidbody like a throwing knife (rotation and velocity)
         Rigidbody2D swordRb = slash.GetComponent<Rigidbody2D>();
         // Direct towards mouse direction from center

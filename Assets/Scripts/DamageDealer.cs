@@ -5,11 +5,15 @@ using UnityEngine;
 public class DamageDealer : MonoBehaviour
 {
     // For objects that deal damage
-    [SerializeField] int damage = 100;
+    private float defaultDamage = 15;
+    public float damage = 15;
     [SerializeField] float lifeTime = 5f;
+    public bool isCrit = false; // Used for text color purposes
+    public float critMultiplier = 3f; // Multiplier for critical hits
 
     public void Start()
     {
+        defaultDamage = damage;
         StartCoroutine(DelayDestroy(lifeTime));
     }
     
@@ -19,7 +23,17 @@ public class DamageDealer : MonoBehaviour
         if (collision.gameObject.GetComponent<EnemyController>())
         {
             // Deal damage to the object
-            collision.gameObject.GetComponent<EnemyController>().TakeDamage(damage);
+            if(isCrit)
+            {
+                Debug.Log("Crit!");
+                collision.gameObject.GetComponent<EnemyController>().TakeDamage(damage * critMultiplier);
+                damage = defaultDamage;
+            }
+            else
+            {
+                collision.gameObject.GetComponent<EnemyController>().TakeDamage(damage);
+            }
+            
             StartCoroutine(DelayDestroy(0.1f));
         }
     }
