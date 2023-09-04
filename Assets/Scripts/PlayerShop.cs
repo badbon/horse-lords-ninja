@@ -12,6 +12,7 @@ public class PlayerShop : MonoBehaviour
     {
         // Get player thief script - contains money related functions
         playerThief = GetComponent<PlayerThief>();
+        shopObj.SetActive(false);
     }
 
 
@@ -21,8 +22,15 @@ public class PlayerShop : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             // Open shop
-            Debug.Log("Shop opened");
-            shopObj.SetActive(true);
+            if(shopObj.activeSelf == false)
+            {
+                shopObj.SetActive(true);
+            }
+            // Close shop
+            else
+            {
+                shopObj.SetActive(false);
+            }
         }
     }
 }

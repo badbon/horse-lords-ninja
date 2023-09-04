@@ -56,6 +56,11 @@ public class PlayerThief : MonoBehaviour
         }
     }
 
+    public void GiveMoney(int amount)
+    {
+        playerMovement.coins += amount;
+    }
+
     private IEnumerator PickpocketTimer()
     {
         yield return new WaitForSeconds(pickpocketTime);

@@ -24,9 +24,13 @@ public class PlayerMovement : MonoBehaviour
     public TextMeshProUGUI coinText;
     public GameObject progressBarPrefab;
 
+    public PlayerThief playerThief;
+    
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerThief = GetComponent<PlayerThief>();
         InvokeRepeating("AlternateTimer", alternateAnimTime, alternateAnimTime);
     }
 

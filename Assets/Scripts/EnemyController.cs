@@ -14,6 +14,8 @@ public class EnemyController : MonoBehaviour
     public float alternateAnimTime = 0.1f;
     public float damageToDeal = 5f;
     public float damageCooldown = 1f; // Seconds between each damage tick
+
+    public int killMoney = 10; // Money given to player when killed
     public bool inPlayerCollision = false;
     public bool aggressive = false;
     public GameObject damageTextPrefab;
@@ -164,6 +166,8 @@ public class EnemyController : MonoBehaviour
         // Death
         if (HP <= 0)
         {
+            // Give player money
+            playerTarget.playerThief.GiveMoney(killMoney);
             Destroy(gameObject);
         }
     }
