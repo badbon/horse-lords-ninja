@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject progressBarPrefab;
 
     public PlayerThief playerThief;
+    public GameObject bombPrefab;
     
 
     private void Start()
@@ -86,6 +87,45 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             SlashSword();
+        }
+
+        // Bomb
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            // Check cooldown
+            if (Time.time < playerThief.bombCooldownTime)
+            {
+                // Cooldown not over
+                Debug.Log("Cooldown not over!");
+                return;
+            }
+            // Check if player has bombs
+            if(playerThief.bombs > 0)
+            {
+                // Use bomb
+                playerThief.bombs--;
+                // Create bomb prefab
+                GameObject bomb = Instantiate(bombPrefab, transform.position, Quaternion.identity);
+                // Launch rigidbody like a throwing knife (rotation and velocity)
+                Rigidbody2D bombRb = bomb.GetComponent<Rigidbody2D>();
+                // Direct towards mouse direction from center
+                Vector2 screenCenter2 = new Vector2(Screen.width / 2, Screen.height / 2);
+                Vector2 direction2 = (Input.mousePosition - new Vector3(screenCenter2.x, screenCenter2.y, 0)).normalized;
+
+                // Set the bomb's rotation to face the direction of the mouse
+                bombRb.transform.right = direction2;
+
+                // Set the velocity of the bomb to move in the direction of the mouse
+                float vel = 14f;
+                bombRb.velocity = direction2 * vel;  // Use 'direction' here, not 'transform.right'
+
+                // Add torque to make the bomb spin
+                float torque = 18f;
+                bombRb.AddTorque(torque);
+
+                // Run cooldown timer
+                playerThief.BombCooldown();
+            }
         }
 
         // Update coin text

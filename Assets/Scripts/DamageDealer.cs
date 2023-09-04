@@ -11,6 +11,8 @@ public class DamageDealer : MonoBehaviour
     public bool isCrit = false; // Used for text color purposes
     public float critMultiplier = 3f; // Multiplier for critical hits
 
+    // Optional
+    public GameObject explosionsPrefab; // after effect
     public void Start()
     {
         defaultDamage = damage;
@@ -33,6 +35,9 @@ public class DamageDealer : MonoBehaviour
             {
                 collision.gameObject.GetComponent<EnemyController>().TakeDamage(damage);
             }
+
+            if(explosionsPrefab != null)
+                Instantiate(explosionsPrefab, transform.position, Quaternion.identity);
             
             StartCoroutine(DelayDestroy(0.1f));
         }

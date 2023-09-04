@@ -39,7 +39,6 @@ public class EnemyController : MonoBehaviour
         // Simple chase
         if(aggressive)
         {
-            Debug.Log("Aggressive");
             direction = (playerTarget.transform.position - transform.position).normalized;
             rb.velocity = direction * speed;
         }

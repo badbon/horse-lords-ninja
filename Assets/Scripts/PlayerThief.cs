@@ -14,6 +14,9 @@ public class PlayerThief : MonoBehaviour
     public float pickpocketTime = 1f; //seconds it takes to pickpocket
 
     public PlayerMovement playerMovement;
+    public int bombs;
+    internal float bombCooldownTime;
+    public bool bombCooldown;
 
     void Start()
     {
@@ -23,7 +26,7 @@ public class PlayerThief : MonoBehaviour
     void Update()
     {
         // Controls
-        if (Input.GetKeyDown(KeyCode.E))
+        /*         if (Input.GetKeyDown(KeyCode.E))
         {
             // Check anyone in range
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, pickpocketRange);
@@ -53,7 +56,7 @@ public class PlayerThief : MonoBehaviour
                 StartCoroutine(PickpocketTimer());
                 StartCoroutine(PickpocketCooldown());
             }
-        }
+        } */
     }
 
     public void GiveMoney(int amount)
@@ -89,5 +92,17 @@ public class PlayerThief : MonoBehaviour
         // Pickpocket
         playerMovement.coins += Random.Range(minMoney, maxMoney);
         return false;
+    }
+
+    public void BombCooldown()
+    {
+        StartCoroutine(BombCooldownTimer());
+    }
+
+    public IEnumerator BombCooldownTimer()
+    {
+        bombCooldown = true;
+        yield return new WaitForSeconds(bombCooldownTime);
+        bombCooldown = false;
     }
 }
