@@ -10,6 +10,7 @@ public class DamageDealer : MonoBehaviour
     [SerializeField] float lifeTime = 5f;
     public bool isCrit = false; // Used for text color purposes
     public float critMultiplier = 3f; // Multiplier for critical hits
+    public float delayDestroy = 0.15f;
 
     // Optional
     public GameObject explosionsPrefab; // after effect
@@ -39,7 +40,7 @@ public class DamageDealer : MonoBehaviour
             if(explosionsPrefab != null)
                 Instantiate(explosionsPrefab, transform.position, Quaternion.identity);
             
-            StartCoroutine(DelayDestroy(0.1f));
+            StartCoroutine(DelayDestroy(delayDestroy));
         }
     }
 

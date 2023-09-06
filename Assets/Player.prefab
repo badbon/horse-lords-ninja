@@ -204,7 +204,7 @@ MonoBehaviour:
   pickPocketcooldown: 0
   pickpocketTime: 0.75
   playerMovement: {fileID: 4816582387943590192}
-  bombs: 150
+  bombs: 15000
   bombCooldown: 0
 --- !u!114 &3518971800857247947
 MonoBehaviour:
