@@ -104,7 +104,7 @@ MonoBehaviour:
   lifeTime: 5
   isCrit: 0
   critMultiplier: 3
-  delayDestroy: 0.2
+  delayDestroy: 1
   explosionsPrefab: {fileID: 0}
 --- !u!61 &2304613257222421505
 BoxCollider2D:
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ef504e000e105048a1b64d71674208b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchSpriteTime: 0.07
+  switchSpriteTime: 0.2
   sprites:
   - {fileID: -908841390, guid: be1cf14ced36c2242a20470ee2d7e2ac, type: 3}
   - {fileID: 756484388, guid: be1cf14ced36c2242a20470ee2d7e2ac, type: 3}
