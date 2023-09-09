@@ -177,6 +177,15 @@ public class PlayerMovement : MonoBehaviour
             // Destroy the food
             Destroy(col.gameObject);
         }
+
+        // 1 hit from enemy is death
+        if (col.gameObject.tag == "Enemy")
+        {
+            // Game over
+            Debug.Log("Dead!");
+            // Restart game, temporary solution
+            Application.LoadLevel(Application.loadedLevel);
+        }
     }
 
     public void TakeDamage(float dmgTaken)
