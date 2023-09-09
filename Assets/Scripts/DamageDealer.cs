@@ -17,6 +17,7 @@ public class DamageDealer : MonoBehaviour
     public void Start()
     {
         defaultDamage = damage;
+        // This is separate from impact lifetime or explosion in general
         StartCoroutine(DelayDestroy(lifeTime));
     }
     
