@@ -1,29 +1,43 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
+    public GameObject tilePrefab;
     public GameObject foodPrefab;
     public GameObject[] enemyPrefabs;
     public float enemySpawnInterval = 0.5f;
     public float itemSpawnInterval = 0.5f;
     public int enemyPreSpawnCount = 25;
-    public bool enemyAggressive = false; // Will enemies attack unprovoked by default?
-    public float mapWidth = 100f;  // Size of the map width
-    public float mapHeight = 100f; // Size of the map height
+    public bool enemyAggressive = false;
+    public float mapWidth = 10;  // Number of tiles in width
+    public float mapHeight = 10; // Number of tiles in height
+    public float tileScale = 1f; // Scale of each tile
     public static MapManager instance;
 
     void Start()
     {
         instance = this;
-        
+
+        CreateTiles();
         PreSpawnEnemies();
         StartCoroutine(SpawnFood());
         InvokeRepeating("SpawnSingleEnemy", 0, enemySpawnInterval);
     }
 
-    // Function to pre-spawn food
+    private void CreateTiles()
+    {
+        for (int x = 0; x < mapWidth; x++)
+        {
+            for (int y = 0; y < mapHeight; y++)
+            {
+                GameObject tile = Instantiate(tilePrefab, new Vector2(x * tileScale, y * tileScale), Quaternion.identity);
+                tile.transform.localScale = new Vector2(tileScale, tileScale);
+                tile.transform.parent = transform;
+            }
+        }
+    }
+
     private void PreSpawnEnemies()
     {
         for (int i = 0; i < enemyPreSpawnCount; i++)
@@ -34,8 +48,8 @@ public class MapManager : MonoBehaviour
 
     private void SpawnSingleFood()
     {
-        float randomX = Random.Range(-mapWidth / 2, mapWidth / 2);
-        float randomY = Random.Range(-mapHeight / 2, mapHeight / 2);
+        float randomX = Random.Range(0, mapWidth * tileScale) - (mapWidth * tileScale) / 2;
+        float randomY = Random.Range(0, mapHeight * tileScale) - (mapHeight * tileScale) / 2;
 
         GameObject obj = Instantiate(foodPrefab, new Vector2(randomX, randomY), Quaternion.identity);
         obj.transform.parent = transform;
@@ -52,15 +66,13 @@ public class MapManager : MonoBehaviour
 
     public void SpawnSingleEnemy()
     {
-        float randomX = Random.Range(-mapWidth / 2, mapWidth / 2);
-        float randomY = Random.Range(-mapHeight / 2, mapHeight / 2);
+        float randomX = Random.Range(0, mapWidth * tileScale) - (mapWidth * tileScale) / 2;
+        float randomY = Random.Range(0, mapHeight * tileScale) - (mapHeight * tileScale) / 2;
 
         int randomIndex = Random.Range(0, enemyPrefabs.Length);
-        GameObject obj = Instantiate(enemyPrefabs[randomIndex],new Vector2(randomX, randomY),
-         Quaternion.identity);
-        
-        obj.GetComponent<EnemyController>().aggressive = enemyAggressive;
+        GameObject obj = Instantiate(enemyPrefabs[randomIndex], new Vector2(randomX, randomY), Quaternion.identity);
 
+        obj.GetComponent<EnemyController>().aggressive = enemyAggressive;
         obj.transform.parent = transform;
     }
 }
