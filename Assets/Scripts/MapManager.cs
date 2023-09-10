@@ -14,6 +14,7 @@ public class MapManager : MonoBehaviour
     public float mapHeight = 10; // Number of tiles in height
     public float tileScale = 1f; // Scale of each tile
     public static MapManager instance;
+    public Vector3 enemySpawnPointOffset;
 
     void Start()
     {
@@ -68,6 +69,9 @@ public class MapManager : MonoBehaviour
     {
         float randomX = Random.Range(0, mapWidth * tileScale) - (mapWidth * tileScale) / 2;
         float randomY = Random.Range(0, mapHeight * tileScale) - (mapHeight * tileScale) / 2;
+        // use offset to ensure correct center
+        randomX += enemySpawnPointOffset.x;
+        randomY += enemySpawnPointOffset.y;
 
         int randomIndex = Random.Range(0, enemyPrefabs.Length);
         GameObject obj = Instantiate(enemyPrefabs[randomIndex], new Vector2(randomX, randomY), Quaternion.identity);
