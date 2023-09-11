@@ -1098,13 +1098,14 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 4512774840863689040, guid: 81329ef3db275e9458a6e727532ae63b, type: 3}
   - {fileID: 4512774840863689040, guid: c48053387f855e94b990d12561abe836, type: 3}
-  enemySpawnInterval: 0.5
+  enemySpawnInterval: 0.25
   itemSpawnInterval: 1
-  enemyPreSpawnCount: 15
+  enemyPreSpawnCount: 75
   enemyAggressive: 1
-  mapWidth: 50
-  mapHeight: 50
-  tileScale: 3
+  mapWidth: 125
+  mapHeight: 125
+  tileScale: 2
+  enemySpawnPointOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1703676259
 GameObject:
   m_ObjectHideFlags: 0
