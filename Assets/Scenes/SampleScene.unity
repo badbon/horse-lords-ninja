@@ -1098,7 +1098,8 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 4512774840863689040, guid: 81329ef3db275e9458a6e727532ae63b, type: 3}
   - {fileID: 4512774840863689040, guid: c48053387f855e94b990d12561abe836, type: 3}
-  enemySpawnInterval: 0.25
+  - {fileID: 2323571176899099501, guid: db61a0493f1b13d4c9703c77ae076cab, type: 3}
+  enemySpawnInterval: 0.2
   itemSpawnInterval: 1
   enemyPreSpawnCount: 75
   enemyAggressive: 1
