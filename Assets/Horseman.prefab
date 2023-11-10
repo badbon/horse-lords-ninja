@@ -170,8 +170,8 @@ MonoBehaviour:
   rightSprite: {fileID: 1785916359, guid: e1c882ec79d135d438ee03a0e7799e14, type: 3}
   upWalkSprite: {fileID: -2025505439, guid: e1c882ec79d135d438ee03a0e7799e14, type: 3}
   downWalkSprite: {fileID: -1896008670, guid: e1c882ec79d135d438ee03a0e7799e14, type: 3}
-  leftWalkSprite: {fileID: -345866096, guid: e1c882ec79d135d438ee03a0e7799e14, type: 3}
-  rightWalkSprite: {fileID: 653669592, guid: e1c882ec79d135d438ee03a0e7799e14, type: 3}
+  leftWalkSprite: {fileID: -803811972, guid: e1c882ec79d135d438ee03a0e7799e14, type: 3}
+  rightWalkSprite: {fileID: 509768473, guid: e1c882ec79d135d438ee03a0e7799e14, type: 3}
   spriteRenderer: {fileID: 5539791242661110634}
   alternateSprite: 0
   alternateAnimTime: 0.06
