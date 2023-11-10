@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     public PlayerThief playerThief;
     public GameObject bombPrefab;
+    public Camera cam;
     
 
     private void Start()
@@ -33,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerThief = GetComponent<PlayerThief>();
         InvokeRepeating("AlternateTimer", alternateAnimTime, alternateAnimTime);
+
+        cam = Camera.main;
     }
 
     private void Update()

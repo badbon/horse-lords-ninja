@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3e7627d5abfdc4ebf2396b92012071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.8
+  speed: 6
   growthAmount: 0.05
   HP: 25
   upSprite: {fileID: -658746911, guid: e1c882ec79d135d438ee03a0e7799e14, type: 3}
