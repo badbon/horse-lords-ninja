@@ -13,22 +13,28 @@ public class CameraFollow : MonoBehaviour
 
     private float initialZ;
     public PixelPerfectCamera pixelPerfectCamera;
+    public Camera cam;
 
     private void Start()
     {
         initialZ = transform.position.z;
         pixelPerfectCamera = GetComponent<PixelPerfectCamera>();
+        cam = GetComponent<Camera>();
+
+        if(target != null)
+        {
+            transform.position = target.position;
+        }
     }
 
-    void FixedUpdate()
+    void Update()
     {
         Vector3 desiredPosition = target.position + offset;
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
         smoothedPosition.z = initialZ;  // Ensure Z remains the same
         transform.position = smoothedPosition;
 
-        // Pixel Perfect camera zooming controls
-        if (pixelPerfectCamera)
+        if (pixelPerfectCamera != null)
         {
             float scroll = Input.GetAxis("Mouse ScrollWheel");
             pixelPerfectCamera.assetsPPU += Mathf.RoundToInt(scroll * zoomSpeed);
@@ -36,7 +42,8 @@ public class CameraFollow : MonoBehaviour
         }
         else
         {
-            Debug.LogError("PixelPerfectCamera component not found!");
+            float scroll = Input.GetAxis("Mouse ScrollWheel");
+            cam.orthographicSize -= Mathf.RoundToInt(scroll * zoomSpeed);
         }
     }
 }
