@@ -1,2 +1,2 @@
-# P9-Agario
- Agario clone for any further work
+# Horse-lord-ninja
+ One of WIP variants from my previous jam games
