@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.Universal;
+
 
 public class CameraFollow : MonoBehaviour
 {
@@ -12,13 +12,13 @@ public class CameraFollow : MonoBehaviour
     public int minPixelsPerUnit, maxPixelsPerUnit;
 
     private float initialZ;
-    public PixelPerfectCamera pixelPerfectCamera;
+    public UnityEngine.Rendering.Universal.PixelPerfectCamera pixelPerfectCamera;
     public Camera cam;
 
     private void Start()
     {
         initialZ = transform.position.z;
-        pixelPerfectCamera = GetComponent<PixelPerfectCamera>();
+        pixelPerfectCamera = GetComponent<UnityEngine.Rendering.Universal.PixelPerfectCamera>();
         cam = GetComponent<Camera>();
 
         if(target != null)

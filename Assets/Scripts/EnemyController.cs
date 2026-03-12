@@ -40,7 +40,7 @@ public class EnemyController : MonoBehaviour
         if(aggressive)
         {
             direction = (playerTarget.transform.position - transform.position).normalized;
-            rb.velocity = direction * speed;
+            rb.linearVelocity = direction * speed;
         }
 
         // Generate current direction (up, down, left, right)

@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
         Vector2 direction = (Input.mousePosition - new Vector3(screenCenter.x, screenCenter.y, 0)).normalized;
 
-        rb.velocity = direction * speed;
+        rb.linearVelocity = direction * speed;
         // Generate current direction (up, down, left, right)
         if (direction.x > 0 && direction.y > 0)
         {
@@ -120,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
 
                 // Set the velocity of the bomb to move in the direction of the mouse
                 float vel = 14f;
-                bombRb.velocity = direction2 * vel;  // Use 'direction' here, not 'transform.right'
+                bombRb.linearVelocity = direction2 * vel;  // Use 'direction' here, not 'transform.right'
 
                 // Add torque to make the bomb spin
                 float torque = 18f;
@@ -221,7 +221,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Set the velocity of the sword to move in the direction of the mouse
         float vel = 14f;
-        swordRb.velocity = direction * vel;  // Use 'direction' here, not 'transform.right'
+        swordRb.linearVelocity = direction * vel;  // Use 'direction' here, not 'transform.right'
 
         // Add torque to make the sword spin
         float torque = 18f;
